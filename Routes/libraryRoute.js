@@ -1,0 +1,11 @@
+const express=require('express');
+const { addLibrary, updateLibrary, getAllLibraries, getLibraryById, deleteLibrary } = require('../controllers/Library');
+const isAuthenticated = require('../middlewares/isAuthenticated');
+const adminMiddleware = require('../middlewares/adminMiddlewares');
+const libraryRouter=express.Router();
+libraryRouter.post('/add',isAuthenticated,adminMiddleware,addLibrary);
+libraryRouter.put('/update/:id',isAuthenticated,adminMiddleware,updateLibrary);
+libraryRouter.get('/fetchall',isAuthenticated,getAllLibraries);
+libraryRouter.get('/fetch/:id',isAuthenticated,getLibraryById);
+libraryRouter.delete('/delete/:id',isAuthenticated,adminMiddleware,deleteLibrary);
+module.exports=libraryRouter;

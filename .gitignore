@@ -1,0 +1,24 @@
+# dependencies
+/node_modules         # Ignores the entire node_modules directory
+/.pnp
+.pnp.js
+
+# testing
+/coverage             # Ignores coverage reports
+
+# production
+/build                # Ignores build artifacts
+
+# misc
+.DS_Store             # Ignores macOS system files
+.env.local            # Ignores local environment variables for specific environments
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*        # Ignores npm debug logs
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore the .env file
+.env                  # Ignores the .env file containing environment variables

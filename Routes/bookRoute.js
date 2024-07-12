@@ -1,0 +1,11 @@
+const express=require('express');
+const { addBook, fetchAllBooks, fetchBookById, deleteBook, updateBook } = require('../controllers/Books');
+const isAuthenticated = require('../middlewares/isAuthenticated');
+const authorMiddleware = require('../middlewares/authorMiddleware');
+const bookRouter=express.Router();
+bookRouter.post('/addbook',isAuthenticated,authorMiddleware,addBook);
+bookRouter.put('/updatebook/:id',isAuthenticated,authorMiddleware,updateBook);
+bookRouter.get('/fetchbook',isAuthenticated,fetchAllBooks);
+bookRouter.get('/fetchbook/:id',isAuthenticated,fetchBookById);
+bookRouter.delete('/deletebook/:id',isAuthenticated,authorMiddleware,deleteBook);
+module.exports=bookRouter;
