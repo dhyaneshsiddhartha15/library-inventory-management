@@ -1,6 +1,4 @@
-Certainly! Here's a sample README file for your GitHub repository, including information on folder structure, MVC pattern, technologies used like Cloudinary, and middleware:
 
----
 
 # Library Inventory Management System
 
