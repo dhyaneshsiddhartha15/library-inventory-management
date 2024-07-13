@@ -11,10 +11,8 @@ const libraryRouter = require('./Routes/libraryRoute');
 const libraryInventoryRouter = require('./Routes/libraryInventoryRoute');
 const fileUpload = require("express-fileupload");
 const borrowRouter = require('./Routes/borrowRoute');
-
 dotenv.config();
-
-const PORT=4000;
+const PORT = process.env.PORT || 4000;
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
@@ -33,6 +31,12 @@ app.use('/api/v1/users',userRouter);
 app.use('/api/v1/library',libraryRouter);
 app.use('/api/v1/libraries',libraryInventoryRouter);
 app.use('/api/v1',borrowRouter);
+app.get("/", (req, res) => {
+	return res.json({
+		success: true,
+		message: "Your server is up and running ...",
+	});
+});
 app.listen(PORT,(req,res)=>{
    console.log(`Server is running at ${PORT}`);
 })
